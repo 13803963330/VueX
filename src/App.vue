@@ -1,47 +1,44 @@
 <template>
   <div>
-    <button @click="ChangeThecolor">换肤</button>
-    <div class="todoapp">
-      <todo-header></todo-header>
-      <todo-main></todo-main>
-      <todo-footer></todo-footer>
-      <Button type="default" style="margin: 10px">按钮</Button>
+    <div>
+      <ProgressBar :rate="rate1" :color="colora" :text="false"
+        >进度条</ProgressBar
+      >
+      <br>
+      <ProgressBar :rate="rate2" @click.native="timeaa">进度条</ProgressBar>
     </div>
   </div>
 </template>
 
 <script>
-import Button from '@/components/Button'
-import '@/assets/styles/base.css'
-import '@/assets/styles/index.css'
-import TodoFooter from './components/TodoFooter.vue' // shift + alt + 下
-import TodoHeader from './components/TodoHeader.vue' // shift + alt + 下
-import TodoMain from './components/TodoMain.vue' // shift + alt + 下
-import { createNamespacedHelpers } from 'vuex'
-const { mapActions: mapstaingActions } =
-  createNamespacedHelpers('ChangeThecolor')
+import ProgressBar from "@/components/ProgressBar";
 export default {
-  data() {
-    return {}
-  },
-
   components: {
-    TodoFooter,
-    TodoHeader,
-    TodoMain,
-    Button
+    ProgressBar,
+  },
+  data() {
+    return {
+      rate1: 50,
+      rate2: 40,
+      colora: "#b3d4c7",
+    };
   },
 
   created() {},
 
   methods: {
-    ...mapstaingActions(['changeColor']),
-    // 传递颜色数据
-    ChangeThecolor() {
-      this.changeColor('blue')
-    }
-  }
-}
+    timeaa() {
+      this.timer = setInterval(() => {
+        // 改变div的宽度
+        this.rate2++;
+        // 关闭定时器
+        if (this.rate2 >= 200) {
+          clearInterval(this.timer);
+        }
+      }, 50);
+    },
+  },
+};
 </script>
 
-<style scoped></style>
+<style lang="less" scoped></style>

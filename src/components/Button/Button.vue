@@ -34,14 +34,14 @@ export default {
   line-height: 40px;
 }
 .default {
-  border: 1px solid green;
+  border: 1px solid rgb(60, 97, 153);
 }
 
 .primary {
-  border: 1px solid #ccc;
+  border: 1px solid rgb(145, 39, 39);
 }
 
 .danger {
-  border: 1px solid red;
+  border: 1px solid rgb(181, 209, 79);
 }
 </style>

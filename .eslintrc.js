@@ -3,7 +3,7 @@ module.exports = {
   env: {
     node: true
   },
-  extends: ['plugin:vue/essential', '@vue/standard'],
+  extends: ['plugin:vue/essential'],
   parserOptions: {
     parser: '@babel/eslint-parser'
   },
@@ -13,6 +13,7 @@ module.exports = {
     'space-before-function-paren': 'off',
     'vue/multi-word-component-names': 'off',
     'vue/no-unused-components': 'off',
-    eqeqeq: 'off'
+    eqeqeq: 'off',
+    'space-before-function-paren': 0
   }
 }
